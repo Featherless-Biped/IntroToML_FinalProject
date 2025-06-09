@@ -1,5 +1,8 @@
 # Ignore data files
 *.csv
+# But keep CSVs in the logs & results directory
+!logs/*.csv
+!results/*.csv
 *.pkl
 
 # Ignore Jupyter notebook checkpoints
