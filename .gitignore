@@ -1,6 +1,6 @@
 # Ignore data files
 *.csv
-
+*.pkl
 
 # Ignore Jupyter notebook checkpoints
 *.ipynb_checkpoints/
