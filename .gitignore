@@ -1,11 +1,9 @@
-# Ignore data files
+# Virtual environment
+.venv/
+# Ignore raw data
 *.csv
-# But keep CSVs in the logs & results directory
 !logs/*.csv
 !results/*.csv
-*.pkl
-
-# Ignore Jupyter notebook checkpoints
+# Jupyter
 *.ipynb_checkpoints/
-
-
+*.pkl

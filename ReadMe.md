@@ -1,61 +1,101 @@
-# Project Overview
+Absolutely. Here is a **clean, copy-pasteable `README.md`** that tells you exactly how to create a virtual environment and how to run the project:
 
-This repository contains all components necessary to run and evaluate our final machine learning project for "Introduction to Machine Learning - Spring 2025".
+---
 
-## 📁 Main Directory Structure
+````markdown
+# 🧠 Intro to ML - Final Project
 
+This project trains and evaluates multiple machine learning models to predict mortgage loan approvals using `train.csv` and `test.csv`. It uses scikit-learn, LightGBM, XGBoost, CatBoost, and more.
+
+---
+
+## ✅ Setup Instructions (with Virtual Environment)
+
+### 1. Create a Virtual Environment (Recommended)
+
+```bash
+python -m venv .venv
+````
+
+### 2. Activate the Environment
+
+* **Windows (Command Prompt):**
+
+  ```bash
+  .venv\Scripts\activate
+  ```
+
+* **macOS/Linux:**
+
+  ```bash
+  source .venv/bin/activate
+  ```
+
+### 3. Upgrade pip
+
+```bash
+python -m pip install --upgrade pip
 ```
-├── README.md              # This file
-├── .gitignore             # Git configuration to ignore large or unnecessary files
-├── ProjectFiles/          # Contains original project instructions and datasets from Moodle
-├── Project/               # Main working directory with the Jupyter notebook and submodels
-    └── OtherModels/       # Contains additional model runs and performance comparisons
+
+### 4. Install All Required Packages
+
+```bash
+pip install numpy pandas matplotlib scikit-learn joblib xgboost catboost lightgbm
 ```
 
----
-
-## 🔧 How to Use This Project
-
-1. **Download the required files**:
-
-    - Go to Moodle and download `train.csv` and `test.csv`
-    - Place them in the `Project/` directory
-    - ⚠️ Note: All `.csv` files are excluded from this repository using `.gitignore`. You must manually add them before running anything.
-
-2. **Open the main Jupyter Notebook**:
-
-    - Located inside `Project/`
-    - This notebook includes data loading, preprocessing, model training, cross-validation, and result generation
-
-3. **Run the notebook**:
-
-    - Make sure `train.csv` and `test.csv` are present in the same folder
-    - The final prediction file (`results_31.csv`) will be generated automatically
-
-4. **Explore other models**:
-
-    - Go to `Project/OtherModels/`
-    - You'll find additional model definitions that were trained and validated
-    - Copy the code into the main notebook to experiment with or compare their performance
+> These are the **only external packages** you need. All are installable via `pip`.
 
 ---
 
-## 📊 Model Comparison Table
+## 🚀 How to Run the Project
 
-| Model Name                   | AUC (Average) | Runtime         | Description                       |
-| ---------------------------- | ------------- | --------------- | --------------------------------- |
-| `model_rf_cv100_full_v1`     | \~0.909       | \~12:15 minutes | 100 trees, default depth          |
-| `model_rf_cv100x15_leaf5_v2` | \~0.932       | \~2:55 minutes  | 100 trees, depth=15, leaf=5, fast |
+### 1. Add Data Files
 
-All models used 5-Fold Stratified Cross-Validation and were run on the full feature set after preprocessing.
+Make sure the following files are in your `Project/` directory:
+
+* `train.csv`
+* `test.csv`
+
+> ⚠️ These are **not included** in the repo and must be added manually.
 
 ---
 
-## 📝 Notes
+### 2. Run the Code
 
--   `.gitignore` is configured to exclude all `.csv` files, including training and test data.
--   You must download and place the required CSVs manually.
--   All models are valid according to course guidelines.
--   The final submission file `results_31.csv` was generated using `model_rf_cv100x15_leaf5_v2`.
+You can run the main script in either of these ways:
 
-Good luck and have fun!
+* 📓 **Via Jupyter Notebook:**
+  Open the notebook and run all cells.
+
+* 🐍 **Or as a Python script:**
+  If you moved all your model functions into a `.py` file, run:
+
+  ```bash
+  python your_script.py
+  ```
+
+---
+
+### 3. Output Files
+
+After execution, you will see:
+
+* `results/*.csv`: Final predictions for submission
+* `models/*.pkl`: Saved model files
+* `logs/model_log.csv`: Logged AUC scores for all models
+
+---
+
+## 📦 Optional: Export Your Environment
+
+If needed, save your environment as a `requirements.txt`:
+
+```bash
+pip freeze > requirements.txt
+```
+
+And install later with:
+
+```bash
+pip install -r requirements.txt
+```
